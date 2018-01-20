@@ -1,0 +1,1 @@
+https://api.coinmarketcap.com/v1/ticker/ - Lists all coins on exchange with USD Prices
