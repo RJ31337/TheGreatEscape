@@ -3,7 +3,7 @@
 $limit = 100;
 
 // Exchanges you wish to match
-$exchanges = array("binance");
+$exchanges = array("zcash");
 
 // Exclude certain coins - uppercase
 $exclusions = array();
@@ -41,4 +41,4 @@ foreach ($data as $market) {
         $url_market = "https://coinmarketcap.com/currencies/".$market->id."/#markets";
         get_markets($url,$url_market,$market->id);
 }
-
+?>
