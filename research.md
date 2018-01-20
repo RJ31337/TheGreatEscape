@@ -10,4 +10,3 @@ https://github.com/pankajsunarc/phpexchanges - PHP Exchanges API for Crypto curr
 https://github.com/jasonlewicki/crypto-trader-hub - Framework for connecting to popular cryptocurrency exchanges and data services, so as to run manual, auto, and algorithmic trades 
 https://github.com/bitcont/cexchange - PHP library for trading on crypto-currency exchanges. 
 https://github.com/krmeljalen/findexchange - Finds on which exchange each top 100 crypto coin is available to buy. (You have to set the exchanges you have and want to match) 
-https://github.com/Ravelous-Marketplace/Ravelous - A crypto-commerce platform intended to make buying and selling items online in exchange for cryptocurrency simple. 
