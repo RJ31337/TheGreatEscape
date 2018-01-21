@@ -1,10 +1,9 @@
 <?php
 
 include 'coins.php';
-$badMarkets = fopen("nomarket.txt", "w") or die("Unable to open file!");
 $highAlt = "ZEC";
 $highPrice = 0;
-$currentPos = 733;
+$currentPos = count($coins);
 $endCurrency = "gbp";
 if (count($argv) == 0)
 {
@@ -13,7 +12,7 @@ if (count($argv) == 0)
 } else {
     $endCurrency = $argv[1];
 }
-
+$Markets = fopen('markets/'.$endCurrency.'-markets.txt', "w") or die("Unable to open file!");
 foreach($coins as $coin) {
     $currentPos--;
     $price = file_get_contents('https://api.cryptonator.com/api/ticker/' . $coin . '-' . $endCurrency);
@@ -26,7 +25,7 @@ foreach($coins as $coin) {
     echo $currentPos . " Coins left to process" . PHP_EOL;
     flush();
     $txt =  '"'.$coin .'",\n';
-    fwrite($badMarkets, $txt);
+    fwrite($Markets, $txt);
     
     $currentPrice = $priceData->ticker->price;
     if ($currentPrice > $highPrice)
@@ -37,8 +36,11 @@ foreach($coins as $coin) {
     usleep(20);
 }
 
-fclose($badMarkets);
+fclose($Markets);
 
-echo "The Best Coin to GBP is " . $highAlt . "and would earn £" . $highPrice ." Per " . $highAlt;
-
+echo "The Best Coin to " .$endCurrency . " is " . $highAlt . " and would earn " . $highPrice . $endCurrency  . " Per " . $highAlt;
+$conversion = fopen('conversion.txt', "a") or die("Unable to open Conversion File!");
+$nextStage = '"'.$highAlt.'"' . PHP_EOL;
+fwrite($conversion, $nextStage);
+fclose($conversion);
 ?>
